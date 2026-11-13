@@ -1,0 +1,19 @@
+@import "tailwindcss";
+@import "tailwind-animations";
+
+@theme inline {
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-background: var(--background);
+}
+
+:root {
+  --primary: oklch(87.895% 0.03921 357.572);
+  --secondary: oklch(32.695% 0.02651 36.95);
+  --background: oklch(98.502% 0.01853 116.72);
+}
+
+body {
+  -webkit-user-select: none;
+  user-select: none;
+}

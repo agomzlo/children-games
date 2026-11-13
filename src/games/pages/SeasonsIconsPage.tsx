@@ -3,6 +3,10 @@ import { DragDropProvider } from "@dnd-kit/react";
 import { Draggable } from "../components/Draggable";
 import { DroppableIcons } from "../components/DroppableIcons";
 import confetti from "@hiseb/confetti";
+import winter from "../../assets/winter.png";
+import spring from "../../assets/spring.png";
+import summer from "../../assets/summer.png";
+import autumn from "../../assets/autumn.png";
 
 const items = [
   {
@@ -68,10 +72,10 @@ const items = [
 ];
 
 const droppables = [
-  { id: "winter", tittle: "Winter", bgImage: "/src/assets/winter.png" },
-  { id: "spring", tittle: "Spring", bgImage: "/src/assets/spring.png" },
-  { id: "summer", tittle: "Summer", bgImage: "/src/assets/summer.png" },
-  { id: "autumn", tittle: "Autumn", bgImage: "/src/assets/autumn.png" },
+  { id: "winter", tittle: "Winter", bgImage: winter },
+  { id: "spring", tittle: "Spring", bgImage: spring },
+  { id: "summer", tittle: "Summer", bgImage: summer },
+  { id: "autumn", tittle: "Autumn", bgImage: autumn },
 ];
 
 function shuffle<T>(list: T[]) {

@@ -3,46 +3,30 @@ import { DragDropProvider } from "@dnd-kit/react";
 import { Draggable } from "../components/Draggable";
 import { DroppableImages } from "../components/DroppableImages";
 import confetti from "@hiseb/confetti";
+import winter from "../../assets/winter.png";
+import spring from "../../assets/spring.png";
+import summer from "../../assets/summer.png";
+import autumn from "../../assets/autumn.png";
 
 const items = [
   {
     id: "summer",
-    container: (
-      <img
-        className="w-80 aspect-video rounded-xl"
-        src="/src/assets/summer.png"
-      />
-    ),
+    container: <img className="w-80 aspect-video rounded-xl" src={summer} />,
     season: "summer",
   },
   {
     id: "winter",
-    container: (
-      <img
-        className="w-80 aspect-video rounded-xl"
-        src="/src/assets/winter.png"
-      />
-    ),
+    container: <img className="w-80 aspect-video rounded-xl" src={winter} />,
     season: "winter",
   },
   {
     id: "spring",
-    container: (
-      <img
-        className="w-80 aspect-video rounded-xl"
-        src="/src/assets/spring.png"
-      />
-    ),
+    container: <img className="w-80 aspect-video rounded-xl" src={spring} />,
     season: "spring",
   },
   {
     id: "autumn",
-    container: (
-      <img
-        className="w-80 aspect-video rounded-xl"
-        src="/src/assets/autumn.png"
-      />
-    ),
+    container: <img className="w-80 aspect-video rounded-xl" src={autumn} />,
     season: "autumn",
   },
 ];

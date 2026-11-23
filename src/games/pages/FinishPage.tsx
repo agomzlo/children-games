@@ -23,7 +23,7 @@ export const FinishPage = () => {
   }
   return (
     <div className="bg-background h-full grid place-content-center text-4xl text-secondary font-bold">
-      You Finished All Questions
+      You Finished All Games
     </div>
   );
 };

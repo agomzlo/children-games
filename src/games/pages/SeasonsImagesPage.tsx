@@ -7,6 +7,7 @@ import winter from "../../assets/winter.png";
 import spring from "../../assets/spring.png";
 import summer from "../../assets/summer.png";
 import autumn from "../../assets/autumn.png";
+import { useSearchParams } from "react-router";
 
 const items = [
   {
@@ -54,6 +55,7 @@ export const SeasonsImagesPage = () => {
   const [placements, setPlacements] = useState<Record<string, string | null>>(
     Object.fromEntries(shufledItems.map((item) => [item.id, null])),
   );
+  const [_, setSearchParams] = useSearchParams();
 
   return (
     <section className="h-full bg-background grid place-items-center">
@@ -77,6 +79,11 @@ export const SeasonsImagesPage = () => {
 
           // Solo cuando se completa ahora, no si ya estaba completo
           if (!isComplete(placements) && isComplete(next)) {
+            setSearchParams((prev) => {
+              prev.set("completed", "true");
+              return prev;
+            });
+
             const waves = 2; // oleadas
             const bursts = 4; // explosiones por oleada
 

@@ -3,13 +3,21 @@ import { DragDropProvider } from "@dnd-kit/react";
 import { Draggable } from "../components/Draggable";
 import { DroppableNumbers } from "../components/DroppableNumbers";
 import confetti from "@hiseb/confetti";
+import { useSearchParams } from "react-router";
+import {
+  NumberOneIcon,
+  NumberTwoIcon,
+  NumberThreeIcon,
+  NumberFourIcon,
+  NumberFiveIcon,
+} from "../icons/numbers";
 
 const items = [
   {
     id: "one",
     container: (
       <div className="p-4 rounded-xl bg-white w-40 aspect-square grid place-items-center text-7xl">
-        <p>🍓</p>
+        <p>🍍</p>
       </div>
     ),
     season: "one",
@@ -18,8 +26,8 @@ const items = [
     id: "two",
     container: (
       <div className="p-4 rounded-xl bg-white w-40 aspect-square grid place-items-center text-5xl">
-        <p className="w-full text-start">⭐</p>
-        <p className="w-full text-end">⭐</p>
+        <p className="w-full text-start">🍌</p>
+        <p className="w-full text-end">🍌</p>
       </div>
     ),
     season: "two",
@@ -28,9 +36,9 @@ const items = [
     id: "three",
     container: (
       <div className="p-4 rounded-xl bg-white w-40 aspect-square grid place-items-center text-3xl">
-        <p className="w-full text-start">🥦</p>
-        <p className="w-full text-center">🥦</p>
-        <p className="w-full text-end">🥦</p>
+        <p className="w-full text-start">🍉</p>
+        <p className="w-full text-center">🍉</p>
+        <p className="w-full text-end">🍉</p>
       </div>
     ),
     season: "three",
@@ -56,13 +64,13 @@ const items = [
     container: (
       <div className="p-4 rounded-xl bg-white w-40 aspect-square grid place-items-center text-3xl">
         <span className="w-full flex flex-row justify-between">
-          <p>🌸</p>
-          <p>🌸</p>
+          <p>🥝</p>
+          <p>🥝</p>
         </span>
-        <p className="w-full text-center">🌸</p>
+        <p className="w-full text-center">🥝</p>
         <span className="w-full flex flex-row justify-between">
-          <p>🌸</p>
-          <p>🌸</p>
+          <p>🥝</p>
+          <p>🥝</p>
         </span>
       </div>
     ),
@@ -71,11 +79,46 @@ const items = [
 ];
 
 const droppables = [
-  { id: "one", tittle: "1 - One" },
-  { id: "two", tittle: "2 - Two" },
-  { id: "three", tittle: "3 - Three" },
-  { id: "four", tittle: "4 - Four" },
-  { id: "five", tittle: "5 - Five" },
+  {
+    id: "one",
+    tittle: (
+      <p className="flex flex-row items-center justify-center">
+        <NumberOneIcon /> - One
+      </p>
+    ),
+  },
+  {
+    id: "two",
+    tittle: (
+      <p className="flex flex-row items-center justify-center">
+        <NumberTwoIcon /> - Two
+      </p>
+    ),
+  },
+  {
+    id: "three",
+    tittle: (
+      <p className="flex flex-row items-center justify-center">
+        <NumberThreeIcon /> - Three
+      </p>
+    ),
+  },
+  {
+    id: "four",
+    tittle: (
+      <p className="flex flex-row items-center justify-center">
+        <NumberFourIcon /> - Four
+      </p>
+    ),
+  },
+  {
+    id: "five",
+    tittle: (
+      <p className="flex flex-row items-center justify-center">
+        <NumberFiveIcon /> - Five
+      </p>
+    ),
+  },
 ];
 
 function shuffle<T>(list: T[]) {
@@ -94,6 +137,7 @@ export const NumbersOneToFivePage = () => {
   const [placements, setPlacements] = useState<Record<string, string | null>>(
     Object.fromEntries(shufledItems.map((item) => [item.id, null])),
   );
+  const [_, setSearchParams] = useSearchParams();
 
   return (
     <section className="h-full bg-background grid place-items-center">
@@ -117,6 +161,11 @@ export const NumbersOneToFivePage = () => {
 
           // Solo cuando se completa ahora, no si ya estaba completo
           if (!isComplete(placements) && isComplete(next)) {
+            setSearchParams((prev) => {
+              prev.set("completed", "true");
+              return prev;
+            });
+
             const waves = 2; // oleadas
             const bursts = 4; // explosiones por oleada
 

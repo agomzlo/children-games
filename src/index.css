@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tailwind-animations";
+@import "@fontsource-variable/dynapuff";
 
 @theme inline {
   --color-primary: var(--primary);
@@ -14,6 +15,10 @@
 }
 
 body {
+  font-family: "DynaPuff Variable", serif;
+  font-weight: 400;
+  font-style: normal;
+
   -webkit-user-select: none;
   user-select: none;
 }

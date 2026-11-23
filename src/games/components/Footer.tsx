@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router";
+import { Link, useLocation, useSearchParams } from "react-router";
 
 export const Footer = () => {
   const paths = [
@@ -8,8 +8,12 @@ export const Footer = () => {
     "/seasons/icons",
     // "/colors/names",
     "/colors/icons",
+    "/hygiene/images",
   ];
   const { pathname } = useLocation();
+  const [searchParams] = useSearchParams();
+
+  const completed = searchParams.get("completed");
 
   const prevPath = () => {
     if (Number(paths.indexOf(pathname)) === 0) return "/";
@@ -21,6 +25,15 @@ export const Footer = () => {
       return paths[Number(paths.length - 1)];
     return paths[Number(paths.indexOf(pathname) + 1)];
   };
+
+  const showNextButton = () => {
+    return (
+      (pathname !== paths[Number(paths.length - 1)] && completed === "true") ||
+      pathname === "/"
+    );
+  };
+
+  console.log(showNextButton());
 
   return (
     <footer
@@ -38,9 +51,9 @@ export const Footer = () => {
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            stroke-width="3"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="3"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             className="lucide lucide-chevron-left preview-icon"
           >
             <path d="m15 18-6-6 6-6" />
@@ -48,7 +61,7 @@ export const Footer = () => {
           Prev
         </Link>
       )}
-      {pathname !== paths[Number(paths.length - 1)] && (
+      {showNextButton() && (
         <Link
           to={nextPath()}
           className="px-8 py-2 flex flex-row items-center rounded-xl font-semibold text-2xl cursor-pointer bg-secondary/75 text-primary/75 hover:bg-secondary hover:text-primary"
@@ -61,9 +74,9 @@ export const Footer = () => {
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            stroke-width="3"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="3"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             className="lucide lucide-chevron-right preview-icon"
           >
             <path d="m9 18 6-6-6-6" />

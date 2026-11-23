@@ -3,6 +3,7 @@ import { DragDropProvider } from "@dnd-kit/react";
 import { Draggable } from "../components/Draggable";
 import { DroppableColorsIcons } from "../components/DroppableColorsIcons";
 import confetti from "@hiseb/confetti";
+import { useSearchParams } from "react-router";
 
 const items = [
   { id: "ballon", container: "🎈", color: "red" },
@@ -105,6 +106,7 @@ export const ColorsIconsPage = () => {
   const [placements, setPlacements] = useState<Record<string, string | null>>(
     Object.fromEntries(shufledItems.map((item) => [item.id, null])),
   );
+  const [_, setSearchParams] = useSearchParams();
 
   return (
     <section className="h-full bg-background grid place-items-center">
@@ -128,6 +130,11 @@ export const ColorsIconsPage = () => {
 
           // Solo cuando se completa ahora, no si ya estaba completo
           if (!isComplete(placements) && isComplete(next)) {
+            setSearchParams((prev) => {
+              prev.set("completed", "true");
+              return prev;
+            });
+
             const waves = 2; // oleadas
             const bursts = 4; // explosiones por oleada
 

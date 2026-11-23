@@ -7,6 +7,7 @@ import { NumbersSixToTenPage } from "./games/pages/NumbersSixToTenPage";
 import { SeasonsIconsPage } from "./games/pages/SeasonsIconsPage";
 import { SeasonsImagesPage } from "./games/pages/SeasonsImagesPage";
 import { ColorsNamesPage } from "./games/pages/ColorsNamesPage";
+import { PersonalHygienePage } from "./games/pages/PersonalHygienePage";
 
 export const appRouter = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ export const appRouter = createBrowserRouter([
       {
         path: "seasons/icons",
         element: <SeasonsIconsPage />,
+      },
+      {
+        path: "hygiene/images",
+        element: <PersonalHygienePage />,
       },
     ],
   },

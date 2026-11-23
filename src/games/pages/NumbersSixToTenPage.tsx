@@ -3,6 +3,7 @@ import { DragDropProvider } from "@dnd-kit/react";
 import { Draggable } from "../components/Draggable";
 import { DroppableNumbers } from "../components/DroppableNumbers";
 import confetti from "@hiseb/confetti";
+import { useSearchParams } from "react-router";
 
 const items = [
   {
@@ -10,12 +11,12 @@ const items = [
     container: (
       <div className="p-4 rounded-xl bg-white w-40 aspect-square grid place-items-center text-3xl">
         <span className="size-full grid grid-cols-2 justify-between">
-          <p>❄️</p>
-          <p>❄️</p>
-          <p>❄️</p>
-          <p>❄️</p>
-          <p>❄️</p>
-          <p>❄️</p>
+          <p>🍐</p>
+          <p>🍐</p>
+          <p>🍐</p>
+          <p>🍐</p>
+          <p>🍐</p>
+          <p>🍐</p>
         </span>
       </div>
     ),
@@ -27,17 +28,17 @@ const items = [
       <div className="p-4 rounded-xl bg-white w-40 aspect-square grid place-items-center text-3xl">
         <span className="size-full flex flex-row justify-between">
           <span className="w-full flex flex-col justify-between">
-            <p>🍁</p>
-            <p>🍁</p>
-            <p>🍁</p>
+            <p>🍊</p>
+            <p>🍊</p>
+            <p>🍊</p>
           </span>
           <span className="w-full flex flex-col justify-center">
-            <p>🍁</p>
+            <p>🍊</p>
           </span>
           <span className="w-full flex flex-col justify-between">
-            <p>🍁</p>
-            <p>🍁</p>
-            <p>🍁</p>
+            <p>🍊</p>
+            <p>🍊</p>
+            <p>🍊</p>
           </span>
         </span>
       </div>
@@ -50,18 +51,18 @@ const items = [
       <div className="p-4 rounded-xl bg-white w-40 aspect-square grid place-items-center text-3xl">
         <span className="size-full flex flex-row justify-between">
           <span className="w-full flex flex-col justify-between">
-            <p>☀️</p>
-            <p>☀️</p>
-            <p>☀️</p>
+            <p>🍋</p>
+            <p>🍋</p>
+            <p>🍋</p>
           </span>
           <span className="w-full flex flex-col justify-evenly">
-            <p>☀️</p>
-            <p>☀️</p>
+            <p>🍋</p>
+            <p>🍋</p>
           </span>
           <span className="w-full flex flex-col justify-between">
-            <p>☀️</p>
-            <p>☀️</p>
-            <p>☀️</p>
+            <p>🍋</p>
+            <p>🍋</p>
+            <p>🍋</p>
           </span>
         </span>
       </div>
@@ -74,19 +75,19 @@ const items = [
       <div className="p-4 rounded-xl bg-white w-40 aspect-square grid place-items-center text-2xl">
         <span className="size-full flex flex-row justify-between">
           <span className="w-full flex flex-col justify-between">
-            <p>🍦</p>
-            <p>🍦</p>
-            <p>🍦</p>
-            <p>🍦</p>
+            <p>🥥</p>
+            <p>🥥</p>
+            <p>🥥</p>
+            <p>🥥</p>
           </span>
           <span className="w-full flex flex-col justify-center">
-            <p>🍦</p>
+            <p>🥥</p>
           </span>
           <span className="w-full flex flex-col justify-between">
-            <p>🍦</p>
-            <p>🍦</p>
-            <p>🍦</p>
-            <p>🍦</p>
+            <p>🥥</p>
+            <p>🥥</p>
+            <p>🥥</p>
+            <p>🥥</p>
           </span>
         </span>
       </div>
@@ -99,20 +100,20 @@ const items = [
       <div className="p-4 rounded-xl bg-white w-40 aspect-square grid place-items-center text-2xl">
         <span className="size-full flex flex-row justify-between">
           <span className="w-full flex flex-col justify-between">
-            <p>🦋</p>
-            <p>🦋</p>
-            <p>🦋</p>
-            <p>🦋</p>
+            <p>🍒</p>
+            <p>🍒</p>
+            <p>🍒</p>
+            <p>🍒</p>
           </span>
           <span className="w-full flex flex-col justify-evenly">
-            <p>🦋</p>
-            <p>🦋</p>
+            <p>🍒</p>
+            <p>🍒</p>
           </span>
           <span className="w-full flex flex-col justify-between">
-            <p>🦋</p>
-            <p>🦋</p>
-            <p>🦋</p>
-            <p>🦋</p>
+            <p>🍒</p>
+            <p>🍒</p>
+            <p>🍒</p>
+            <p>🍒</p>
           </span>
         </span>
       </div>
@@ -145,6 +146,7 @@ export const NumbersSixToTenPage = () => {
   const [placements, setPlacements] = useState<Record<string, string | null>>(
     Object.fromEntries(shufledItems.map((item) => [item.id, null])),
   );
+  const [_, setSearchParams] = useSearchParams();
 
   return (
     <section className="h-full bg-background grid place-items-center">
@@ -168,6 +170,11 @@ export const NumbersSixToTenPage = () => {
 
           // Solo cuando se completa ahora, no si ya estaba completo
           if (!isComplete(placements) && isComplete(next)) {
+            setSearchParams((prev) => {
+              prev.set("completed", "true");
+              return prev;
+            });
+
             const waves = 2; // oleadas
             const bursts = 4; // explosiones por oleada
 

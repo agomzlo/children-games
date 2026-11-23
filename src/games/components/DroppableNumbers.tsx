@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 
 interface Props {
   id: string | number;
-  tittle: string;
+  tittle: ReactNode | string;
   children: ReactNode;
 }
 
@@ -15,7 +15,7 @@ export function DroppableNumbers({ id, tittle, children }: Props) {
   return (
     <div
       ref={ref}
-      className="relative min-h-60 w-60 border-4 border-secondary rounded-xl flex flex-col p-4 overflow-hidden"
+      className="min-h-60 size-auto aspect-square border-4 border-secondary rounded-xl flex flex-col p-4 gap-2 overflow-hidden"
     >
       <span className="w-full h-10 text-center font-bold text-secondary text-4xl uppercase z-10">
         {tittle}

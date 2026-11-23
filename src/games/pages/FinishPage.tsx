@@ -22,8 +22,9 @@ export const FinishPage = () => {
     }
   }
   return (
-    <div className="bg-background h-full grid place-content-center text-4xl text-secondary font-bold">
-      You Finished All Games
+    <div className="bg-background h-full flex flex-col justify-center items-center text-4xl text-secondary font-bold gap-4">
+      <p>You Finished All Games</p>
+      <p className="text-6xl">7/7</p>
     </div>
   );
 };

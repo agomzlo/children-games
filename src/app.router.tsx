@@ -9,6 +9,7 @@ import { SeasonsImagesPage } from "./games/pages/SeasonsImagesPage";
 import { ColorsNamesPage } from "./games/pages/ColorsNamesPage";
 import { PersonalHygienePage } from "./games/pages/PersonalHygienePage";
 import { WeathersImagesPage } from "./games/pages/WeathersImagesPage";
+import { FinishPage } from "./games/pages/FinishPage";
 
 export const appRouter = createBrowserRouter([
   {
@@ -50,6 +51,10 @@ export const appRouter = createBrowserRouter([
       {
         path: "weathers/images",
         element: <WeathersImagesPage />,
+      },
+      {
+        path: "finish",
+        element: <FinishPage />,
       },
     ],
   },

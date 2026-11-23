@@ -10,6 +10,7 @@ export const Footer = () => {
     "/colors/icons",
     "/weathers/images",
     "/hygiene/images",
+    "/finish",
   ];
   const { pathname } = useLocation();
   const [searchParams] = useSearchParams();

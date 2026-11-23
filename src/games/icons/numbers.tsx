@@ -640,7 +640,7 @@ export const NumberTenIcon = () => {
       viewBox="262.5963 332.4319 174.1283 132.1193"
       width="174.128px"
       height="132.119px"
-      className="size-10"
+      className="h-10 w-auto mr-1.5"
     >
       <g>
         <g transform="matrix(1, 0, 0, 1, 117.022079, 295.659454)">

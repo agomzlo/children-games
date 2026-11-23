@@ -8,6 +8,7 @@ import { SeasonsIconsPage } from "./games/pages/SeasonsIconsPage";
 import { SeasonsImagesPage } from "./games/pages/SeasonsImagesPage";
 import { ColorsNamesPage } from "./games/pages/ColorsNamesPage";
 import { PersonalHygienePage } from "./games/pages/PersonalHygienePage";
+import { WeathersImagesPage } from "./games/pages/WeathersImagesPage";
 
 export const appRouter = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ export const appRouter = createBrowserRouter([
       {
         path: "hygiene/images",
         element: <PersonalHygienePage />,
+      },
+      {
+        path: "weathers/images",
+        element: <WeathersImagesPage />,
       },
     ],
   },

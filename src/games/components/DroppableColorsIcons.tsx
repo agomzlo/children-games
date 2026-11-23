@@ -26,7 +26,7 @@ export function DroppableColorsIcons({
       className={`relative min-h-50 w-100 ${bgColor} border-4 border-secondary rounded-xl flex flex-col p-4 overflow-hidden`}
     >
       <span
-        className={`w-full h-10 text-center font-bold text-xl uppercase ${textColor}`}
+        className={`w-full h-10 text-center font-bold text-2xl uppercase ${textColor}`}
       >
         {tittle}
       </span>

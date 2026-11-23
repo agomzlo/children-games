@@ -8,6 +8,7 @@ export const Footer = () => {
     "/seasons/icons",
     // "/colors/names",
     "/colors/icons",
+    "/weathers/images",
     "/hygiene/images",
   ];
   const { pathname } = useLocation();

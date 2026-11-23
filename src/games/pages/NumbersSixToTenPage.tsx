@@ -4,6 +4,13 @@ import { Draggable } from "../components/Draggable";
 import { DroppableNumbers } from "../components/DroppableNumbers";
 import confetti from "@hiseb/confetti";
 import { useSearchParams } from "react-router";
+import {
+  NumberSixIcon,
+  NumberSevenIcon,
+  NumberEigthIcon,
+  NumberNineIcon,
+  NumberTenIcon,
+} from "../icons/numbers";
 
 const items = [
   {
@@ -123,11 +130,46 @@ const items = [
 ];
 
 const droppables = [
-  { id: "six", tittle: "6 - Six" },
-  { id: "seven", tittle: "7 - Seven" },
-  { id: "eigth", tittle: "8 - Eigth" },
-  { id: "nine", tittle: "9 - Nine" },
-  { id: "ten", tittle: "10 - Ten" },
+  {
+    id: "six",
+    tittle: (
+      <p className="flex flex-row items-center justify-center">
+        <NumberSixIcon /> - Six
+      </p>
+    ),
+  },
+  {
+    id: "seven",
+    tittle: (
+      <p className="flex flex-row items-center justify-center">
+        <NumberSevenIcon /> - Seven
+      </p>
+    ),
+  },
+  {
+    id: "eigth",
+    tittle: (
+      <p className="flex flex-row items-center justify-center">
+        <NumberEigthIcon /> - Eigth
+      </p>
+    ),
+  },
+  {
+    id: "nine",
+    tittle: (
+      <p className="flex flex-row items-center justify-center">
+        <NumberNineIcon /> - Nine
+      </p>
+    ),
+  },
+  {
+    id: "ten",
+    tittle: (
+      <p className="flex flex-row items-center justify-center">
+        <NumberTenIcon /> - Ten
+      </p>
+    ),
+  },
 ];
 
 function shuffle<T>(list: T[]) {

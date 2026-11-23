@@ -109,7 +109,7 @@ export const SeasonsImagesPage = () => {
           setPlacements(next);
         }}
       >
-        <div className="flex flex-col items-center gap-16 p-8">
+        <div className="flex flex-col items-center gap-20 p-8">
           <div className="flex gap-8">
             {droppables.map((droppable) => (
               <DroppableImages
